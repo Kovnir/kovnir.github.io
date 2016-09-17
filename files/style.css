@@ -197,9 +197,6 @@ p {
   text-align: right;
 }
 .nav-menu {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
   float: none;
   color: white;
   text-align: center;
@@ -209,7 +206,6 @@ p {
   color: white;
 }
 .navbar-menu {
-  float: none;
   text-align: center;
 }
 .timeline {
