@@ -162,6 +162,19 @@ body .title_box > span .right:after {
 			header, footer, banner
 \* ----------------------------------- */
 
+
+.banner .language {
+  float: right;
+  text-align: right;
+  width: 40px;
+  height: 40px;
+  padding: 16px 0 0 0px;
+}
+.banner .language img {
+  width: 100%;
+  height: 100%;
+}
+
 .banner .text {
   float: left;
   text-align: left;
@@ -284,13 +297,14 @@ body .title_box > span .right:after {
   list-style-type: none;
   overflow: hidden;
   padding-bottom: 10px;
+  text-align: center;
 }
 #wrap .box_awards .reward li {
   display: inline-block;
   *display: inline;
   zoom: 1;
   vertical-align: top;
-  width: 300px;
+  width: 250px;
   margin: 0 8px;
   background: #fff;
   border-radius: 10px;
@@ -330,7 +344,7 @@ body .title_box > span .right:after {
 #wrap .box_awards .reward li p {
   font-size: 14px;
   line-height: 16px;
-  padding: 0px 30px 15px 55px;
+  padding: 0px 30px 15px 30px;
   background: url(../img/quote.png) 32px 0 no-repeat;
   color: #555;
   overflow: hidden;
@@ -423,7 +437,7 @@ body .title_box > span .right:after {
 #wrap .box_download .form .inner {
   font-size: 24px;
   color: #7C7C7C;
-  padding: 25px 0px 20px 35px;
+  padding: 25px 0px 20px 0px;
 }
 #wrap .box_download .form input[type="submit"],
 #wrap .box_download .form button {
@@ -445,6 +459,31 @@ body .title_box > span .right:after {
   outline: none;
   cursor: pointer;
 }
+#wrap .box_download .form h1 {
+  padding: 10px 0 0px 75px;
+  color: #df6b5e;
+  font-size: 30px;
+  font-family: 'rex_bold_bold';
+  text-decoration: none;
+  text-align: Left;
+}
+#wrap .box_download .form h2{
+  padding: 0px 0 20px 75px;
+  color: #df6b5e;
+  font-size: 20px;
+  font-family: 'rex_bold_bold';
+  text-decoration: none;
+  text-align: Left;
+}
+#wrap .box_download .form p {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 0px 55px 10px 55px;
+  color: #555;
+  overflow: hidden;
+  
+}
+
 /* ----------------------------------- *\
 			popup
 \* ----------------------------------- */
