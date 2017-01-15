@@ -489,6 +489,21 @@ body .title_box > span .right:after {
   
   text-align: left;
 }
+#wrap .box_download .form a {
+  font-family: Tahoma, "Geneva CY", sans-serif;
+  font-size: 18px;
+}
+#wrap .box_download .form ul {  
+  font-family: Tahoma, "Geneva CY", sans-serif;
+  list-style-type: circle;
+  font-size: 18px;
+  padding: 0px 55px 10px 75px;
+  color: #555;
+  text-align: left;
+}
+#wrap .box_download .form ul li {
+  font-family: Tahoma, "Geneva CY", sans-serif;
+}
 
 /* ----------------------------------- *\
 			popup
