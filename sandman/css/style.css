@@ -103,6 +103,7 @@ body .title_box > span .right:after {
   position: relative;
   overflow: hidden;
   background: url(../img/bg_baner.png) 0 0 no-repeat;
+  background-size: cover; 
 }
 #wrap #banner .banner {
   height: 470px;
@@ -271,8 +272,23 @@ body .title_box > span .right:after {
 #wrap .box_gallery .inner {
   padding: 20px 0 48px;
 }
+
+#wrap .box_gallery .inner ul.gif {
+  overflow: hidden;
+  text-align: center;
+  list-style-type: none;
+}
+#wrap .box_gallery .inner ul.gif li {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+/*  vertical-align: top;*/
+  width: 300px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
 #wrap .box_gallery .inner ul.gallery {
-  width: 1000px;
   overflow: hidden;
   text-align: center;
   list-style-type: none;
