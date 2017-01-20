@@ -273,6 +273,11 @@ body .title_box > span .right:after {
   padding: 20px 0 48px;
 }
 
+#wrap .box_gallery .inner .video{
+  text-align: center;
+  padding-top: 40px;
+}
+
 #wrap .box_gallery .inner ul.gif {
   overflow: hidden;
   text-align: center;
