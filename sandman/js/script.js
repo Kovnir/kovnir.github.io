@@ -1,3 +1,3 @@
 $(document).ready(function(){
-    $('.gif a, .gallery a').colorbox();
+    $('.gif a, .gallery a, .screenshots a').colorbox();
 });
