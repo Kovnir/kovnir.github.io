@@ -11,7 +11,7 @@ p {
 	text-align: center; 
     font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 20px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 	line-height: 30px;
 }
 
@@ -20,11 +20,11 @@ a {
 }
 
 a:link {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:visited {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 a:hover {
@@ -53,6 +53,11 @@ textarea {
     margin-right: auto;
     background-color : #2d2d2d; 
     color: white;
+}
+video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .webgl-content * {border: 0; margin: 0; padding: 0}
