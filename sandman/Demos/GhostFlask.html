@@ -76,7 +76,7 @@ Shader "Sandman/GhostFlaskWithSandman"
 				float2 uv : TEXCOORD0;
 			};
 
-		    sampler2D _MainTex;
+			sampler2D _MainTex;
 			float4 _BlockedColor;
 			float _AlphaAddition;
 			float _Multiplier;
@@ -96,7 +96,7 @@ Shader "Sandman/GhostFlaskWithSandman"
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float alpha = 1 - dot(i.normal, i.viewDir) * _Multiplier;
+				float alpha = (1 - dot(i.normal, i.viewDir)) * _Multiplier;
 				float alphaFactor = (tex2D(_MainTex, i.uv + _Time.gg * _FogSpeed).b + _AlphaAddition) * _Animation;
 				_BlockedColor.a = alphaFactor * alpha;
 				return _BlockedColor;
@@ -153,9 +153,9 @@ Shader "Sandman/GhostFlaskWithSandman"
 			
 			fixed4 frag (v2f i) : SV_Target
 			{
-				float alpha = 1 - dot(i.normal, i.viewDir) * _Multiplier;
+				float alpha = (1 - dot(i.normal, i.viewDir)) * _Multiplier;
 				float alphaFactor = (tex2D(_MainTex, i.uv + _Time.gg * _FogSpeed).b + _AlphaAddition) * _Animation;
-				_NormalColor.a = alphaFactor * alpha;
+				_NormalColor.a = alpha * alphaFactor;
 				return _NormalColor;
 			}
 						
@@ -163,6 +163,7 @@ Shader "Sandman/GhostFlaskWithSandman"
 		}
 	}
 }
+
 	</textarea>
 
 	<p>Our pages in social networks:<br>
