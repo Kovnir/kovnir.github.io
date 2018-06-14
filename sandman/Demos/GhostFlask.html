@@ -47,8 +47,8 @@ Shader "Sandman/GhostFlaskWithSandman"
 	SubShader
 	{
 		Tags { "Queue"="Transparent" "RenderType"="Transparent" }
-        Blend SrcAlpha OneMinusSrcAlpha
-        ZWrite off
+		Blend SrcAlpha OneMinusSrcAlpha
+		ZWrite off
         
 		Pass
 		{
@@ -132,13 +132,13 @@ Shader "Sandman/GhostFlaskWithSandman"
 				float2 uv : TEXCOORD0;
 			};
 			
-		    sampler2D _MainTex;
+			sampler2D _MainTex;
 			float4 _NormalColor;
 			float _Animation;
 			float _AlphaAddition;
 			float _Multiplier;	
 			float _FogSpeed;
-            float4 _MainTex_ST;
+			float4 _MainTex_ST;
 
 
 			v2f vert (appdata v)
