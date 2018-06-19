@@ -8,11 +8,16 @@ h1 {
 
 p {
     color: white;
-	text-align: center; 
     font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 20px;
     margin-top: 40px;
     margin-bottom: 20px;
 	line-height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+p.center {
+    text-align: center; 
 }
 
 a {
@@ -47,7 +52,6 @@ h2 {
 textarea {
 	resize: none;
 	width: 600px;
-	height: 1200px;
     display: block;
     margin-left: auto;
     margin-right: auto;

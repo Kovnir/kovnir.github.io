@@ -15,7 +15,7 @@
   <body bgcolor = '1d1d1d'>
 
   	<h1>Ghost Flask Demo</h1>
-  	<p>In the <a href="https://www.facebook.com/SandmanGame" target="_blank">Throught the Nightmares</a> game, it used for showing why player can't place the flask.</p>
+  	<p class="center">In the <a href="https://www.facebook.com/SandmanGame" target="_blank">Throught the Nightmares</a> game, it used for showing why player can't place the flask.</p>
 
 <video width="600" autoplay loop controls>
   <source src="GhostFlask/video.mp4" type="video/mp4">
@@ -30,7 +30,7 @@ Your browser does not support the video tag.
       </div>
     </div>
     <h2>Shader code:</h2>
-    <textarea readonly>
+    <textarea rows="100" readonly>
 Shader "Sandman/GhostFlaskWithSandman"
 {
 	Properties
@@ -166,7 +166,55 @@ Shader "Sandman/GhostFlaskWithSandman"
 
 	</textarea>
 
-	<p>Our pages in social networks:<br>
+
+	<h2>Explanation</h2>
+	<p>
+It is a simple two-pass shader. <br>
+First pass (ZTest Greater) renders pixel, if the distance between the object and camera in this pixel’s coordinate is greater than ZBuffer value - meaning our object is being overlapped by something.<br>
+<br>
+Second pass (ZTest LEqual) renders pixel if the distance is less or equal to ZBuffer value. Same as a regular render.<br>
+<br>
+Vertex shaders are identical:<br>
+<textarea rows="9" readonly>
+v2f vert (appdata v)
+{
+	v2f o;
+	o.vertex = UnityObjectToClipPos(v.vertex);
+	o.normal = UnityObjectToWorldNormal(v.normal);
+	o.viewDir = normalize(WorldSpaceViewDir(v.vertex));
+	o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+	return o;
+}</textarea>
+<br>
+We transform coordinates and normals, calculate direction from a point to camera and transform UV-coordinates, to get tiling working.<br>
+<br>
+Fragment shaders are identical as well, with one exception - the first pass uses color from property _BlockedColor (we have red in the game), the second uses _NormalColor (pale yellow). We will use second as an example.<br>
+<br>
+First line:<br>
+<textarea rows="1" readonly>
+float alpha = 1 - dot(i.normal, i.viewDir);
+</textarea>
+<br>
+The scalar product between the camera direction vector and the normal shows similarity between the angles of these vectors. <br>
+“1” means they are unidirectional, “0” stands for 90º angle, “-1” - if they are opposite (but the last case is not going to happen, because this geometry is cut off with the rule). Subtract this value from one to get the opposite effect. Subsequently, this will be our alpha - the edges of the object, turned away from the camera, will be perfectly visible, and the polygons, facing the camera directly, will not be visible. <br>
+It makes a great ghost effect - the classic "ghost shader" from many games.<br>
+<br>
+Second line:<br>
+<textarea rows="2" readonly>
+float alphaFactor = tex2D(_MainTex, i.uv + _Time.gg * _FogSpeed).b + _AlphaAddition;
+</textarea>
+<br>
+Let us multiply the results and write the value into the output color alpha channel. Multiply all of this by _Multiplier - to control the transparency. <br>
+In the end, multiply by _Animation to set the appear/disappear animation, changing this value from zero to one and back smoothly.<br>
+<br>
+Last line is self-explanatory:<br>
+<textarea rows="1" readonly>
+return _NormalColor;
+</textarea>
+<br>
+Basically, that’s it. If you have any questions, please contact us by the links below or write to <a href="mailto:kovnir.alik@gmail.com?Subject=Ghost%20Flask%20Shader">email</a>!
+	</p>
+	<p class="center">Our pages in social networks:<br>
 		<a href="https://www.facebook.com/SandmanGame/" target="_blank">Facebook</a><br>
 		<a href="https://vk.com/sandmangame" target="_blank">Vk</a>
 	</p>
