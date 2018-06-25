@@ -6,10 +6,16 @@ h1 {
     margin-bottom: 40px;
 }
 
+.center_block
+{
+
+    text-align: center; 
+}
+
 p {
     color: white;
     font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 20px;
-    margin-top: 40px;
+    margin-top: 0px;
     margin-bottom: 20px;
 	line-height: 30px;
     margin-left: auto;
@@ -49,6 +55,13 @@ h2 {
     margin-bottom: 40px;
 }
 
+h3 {
+    color: white;
+    text-align: center; 
+    font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
 textarea {
 	resize: none;
 	width: 600px;
