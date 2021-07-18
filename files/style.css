@@ -117,10 +117,11 @@ p {
 .wite-center {
   color: white;
   text-align: center;
+  transition: 0.4s;
 }
 
 .hero-offset {
-  padding-top: 500px;
+  padding-top: 550px;
 }
 
 .hero {
