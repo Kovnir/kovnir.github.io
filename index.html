@@ -20,10 +20,10 @@
    </head>
    <body>
       <div class="hero" id="hero">
-         <div class="w-container">
+         <div class="container">
             <div class="userpic" id="userpic"></div>
-            <p id="role" class="wite-center">Lead Unity developer, PM</p>
-            <h1 class="name"><span class="name-span">Albert Kovnir</span></h1>
+            <p id="role" class="role">Lead Unity developer, PM</p>
+            <h1 id="name" class="name"><span class="name-span">Albert Kovnir</span></h1>
          </div>
       </div>
       <div class="hero-offset"></div>
@@ -134,6 +134,11 @@ function scrollFunction() {
     document.getElementById("hero").style.paddingTop = "0px";
 
     document.getElementById("role").style.fontSize = "0px";
+    document.getElementById("role").style.height = "0px";
+
+//выравниваем
+    document.getElementById("name").style.marginTop = "-100px";
+    document.getElementById("userpic").style.marginLeft = "100px";
   } else {
 
     document.getElementById("userpic").style.width = "270px";
@@ -143,6 +148,11 @@ function scrollFunction() {
     document.getElementById("hero").style.paddingTop = "100px";
 
     document.getElementById("role").style.fontSize = "20px";
+    document.getElementById("role").style.height = "30px";
+
+    document.getElementById("name").style.marginTop = "0px";
+    document.getElementById("userpic").style.marginLeft = "calc(50% - 135px)";
+ 
   }
 }
    </script>

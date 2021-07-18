@@ -124,6 +124,13 @@ p {
   padding-top: 550px;
 }
 
+.role {
+  color: white;
+  text-align: center;
+  transition: 0.4s;
+  height: 30px;
+}
+
 .hero {
        z-index: 100000;
 //  color: white;
@@ -134,7 +141,7 @@ p {
   padding-top: 100px;
 //  padding-bottom: 0px;
   width: 100%;
-
+    padding-bottom: 20px;
   background-color: rgba(34, 48, 60, 0);
 //  background-image: url(../files/image/herobg.png);
 //  background-position: 50% 100%;
@@ -149,7 +156,10 @@ p {
   display: block;
   width: 270px;
   height: 270px;
-  margin: 20px auto;
+  margin-top: 20px;
+  margin-left: calc(50% - 135px);
+  margin-right: auto;
+  margin-bottom: 15px;
   border: 4px solid white;
   border-radius: 200px;
   background-image: url(../files/image/userpic.jpg);
@@ -163,6 +173,7 @@ p {
   margin-right: auto;
   margin-bottom: 25px;
   margin-left: auto;
+  margin-top: 0px;
   border-bottom-style: none;
   color: white;
   font-size: 60px;
