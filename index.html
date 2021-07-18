@@ -19,16 +19,17 @@
       <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
    </head>
    <body>
-      <div class="hero" id="hero" data-ix="display-nav">
+      <div class="hero" id="hero">
          <div class="w-container">
-            <div class="userpic"></div>
+            <div class="userpic" id="userpic"></div>
             <p class="wite-center">Lead Unity developer, PM</p>
             <h1 class="name"><span class="name-span">Albert Kovnir</span></h1>
+         </div>
+      </div>
+      <div class="hero-offset"></div>
             <div class="skils">
                <p class="wite-center">My projects:</p>
             </div>
-         </div>
-      </div>
       <div class="w-nav navbar" data-collapse="medium" >
             <nav class="nav-menu" role="navigation">
 <!--				<a class="w-nav-link nav-link bottom" href="/anagram" style="max-width: 940px;">ANAGRAM</a> -->
@@ -93,5 +94,50 @@
             <a class="w-nav-link nav-link bottom" href="https://github.com/Kovnir/FastTweener" style="max-width: 940px;"><b>FAST TWEENER</b> (github)</a> 
          </nav>
       </div>
+      <div class="w-nav navbar" data-collapse="medium" >
+            <nav class="nav-menu" role="navigation">
+<!--           <a class="w-nav-link nav-link bottom" href="/anagram" style="max-width: 940px;">ANAGRAM</a> -->
+            <a class="w-nav-link nav-link bottom" href="http://throughthenightmares.com" style="max-width: 940px;"><b>THROUGH THE NIGHTMARES</b> (game)</a> 
+            <a class="w-nav-link nav-link bottom" href="https://assetstore.unity.com/packages/tools/utilities/simplest-mesh-baker-118123" style="max-width: 940px;"><b>SIMPLEST MESH BAKER</b> (asset store)</a> 
+            <a class="w-nav-link nav-link bottom" href="https://github.com/Kovnir/FastTweener" style="max-width: 940px;"><b>FAST TWEENER</b> (github)</a> 
+         </nav>
+      </div>
+      <div class="w-nav navbar" data-collapse="medium" >
+            <nav class="nav-menu" role="navigation">
+<!--           <a class="w-nav-link nav-link bottom" href="/anagram" style="max-width: 940px;">ANAGRAM</a> -->
+            <a class="w-nav-link nav-link bottom" href="http://throughthenightmares.com" style="max-width: 940px;"><b>THROUGH THE NIGHTMARES</b> (game)</a> 
+            <a class="w-nav-link nav-link bottom" href="https://assetstore.unity.com/packages/tools/utilities/simplest-mesh-baker-118123" style="max-width: 940px;"><b>SIMPLEST MESH BAKER</b> (asset store)</a> 
+            <a class="w-nav-link nav-link bottom" href="https://github.com/Kovnir/FastTweener" style="max-width: 940px;"><b>FAST TWEENER</b> (github)</a> 
+         </nav>
+      </div>
+      <div class="w-nav navbar" data-collapse="medium" >
+            <nav class="nav-menu" role="navigation">
+<!--           <a class="w-nav-link nav-link bottom" href="/anagram" style="max-width: 940px;">ANAGRAM</a> -->
+            <a class="w-nav-link nav-link bottom" href="http://throughthenightmares.com" style="max-width: 940px;"><b>THROUGH THE NIGHTMARES</b> (game)</a> 
+            <a class="w-nav-link nav-link bottom" href="https://assetstore.unity.com/packages/tools/utilities/simplest-mesh-baker-118123" style="max-width: 940px;"><b>SIMPLEST MESH BAKER</b> (asset store)</a> 
+            <a class="w-nav-link nav-link bottom" href="https://github.com/Kovnir/FastTweener" style="max-width: 940px;"><b>FAST TWEENER</b> (github)</a> 
+         </nav>
+      </div>
    </body>
+
+   <script>
+// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+
+    document.getElementById("userpic").style.width = "100px";
+    document.getElementById("userpic").style.height = "100px";
+
+    document.getElementById("hero").style.backgroundColor = "#34486099";
+  } else {
+
+    document.getElementById("userpic").style.width = "270px";
+    document.getElementById("userpic").style.height = "270px";
+
+    document.getElementById("hero").style.backgroundColor = "#34486000";
+  }
+}
+   </script>
 </html>
