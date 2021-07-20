@@ -94,18 +94,26 @@ p {
 .social_links li {
     display: inline-block;
     margin-right: 4px;
-    border: 1px solid #285d6b;
+    border: 2px solid;
     border-radius: 50%;
-    padding: 0px;
+    padding: 2px;
+    color: white;
+    font-size: 18px;
+    background-color: rgba(34, 48, 60, .5);
+    transition: 0.2s;
+}
+.social_links li:hover {
+    background-color: rgba(34, 48, 60, 1);
+    transition: 0.2s;
+//    font-size: 20px;
 }
 .social_links li a {
     display: block;
     width: 46px;
     height: 46px;
-    text-align: center;
     line-height: 46px;
-    font-size: 18px;
-    color: #00283a;
+    text-align: center;
+    color: white;
 }
 
 a, a:hover, a:active {
@@ -162,7 +170,7 @@ a, a:hover, a:active {
 }
 
 .hero-offset {
-  padding-top: 550px;
+  padding-top: 520px;
 }
 
 .role {
@@ -222,7 +230,7 @@ a, a:hover, a:active {
   text-decoration: none;
   text-transform: uppercase;
 }
-.skils {
+.projects {
   display: block;
   width: auto;
   margin-right: auto;
@@ -551,7 +559,7 @@ html.w-mod-js.w-mod-no-ios *[data-ix="popup-6"] {
   }
 }
 @media (max-width: 479px) {
-  .skils {
+  .projects {
     line-height: 29px;
   }
   .name-span {
