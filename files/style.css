@@ -79,6 +79,10 @@ p {
     animation-delay: 1s;
 }
 
+.main-area {
+    background-color: rgba(34, 48, 60, .8);
+    color: white;
+}
 
 .social_links {
     padding: 0;
@@ -89,7 +93,7 @@ p {
     text-align: center;
     margin: 0 auto;
     padding: 0 20px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 .social_links li {
     display: inline-block;
@@ -235,7 +239,7 @@ a, a:hover, a:active {
   width: auto;
   margin-right: auto;
   margin-left: auto;
-  padding-top: 40px;
+  padding-top: 0px;
   padding-bottom: 10px;
   font-size: 27px;
   text-transform: uppercase;
