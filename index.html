@@ -5,12 +5,14 @@
       <meta charset="utf-8">
       <title>Albert Kovnir</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
       <link rel="stylesheet" type="text/css" href="files/style.css">
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
       <link rel="shortcut icon" type="image/x-icon" href="files/image/favicon.ico">
    </head>
+
    <body>
       <div class="hero" id="hero">
          <div class="container">
@@ -22,7 +24,17 @@
 
       <div class="hero-offset"></div>
 
-      <div class="skils">
+
+      <div class="container">
+         <ul class="social_links">
+            <li class="animate__animated animate__bounce delay-1"><a href=""><i class="fa fa-twitter"></i></a></li>
+            <li class="animate__animated animate__bounce delay-2"><a href=""><i class="fa fa-facebook"></i></a></li>
+            <li class="animate__animated animate__bounce delay-3"><a href=""><i class="fa fa-pinterest"></i></a></li>
+            <li class="animate__animated animate__bounce delay-4"><a href=""><i class="fa fa-google-plus"></i></a></li> 
+          </ul>
+      </div>
+
+      <div id="test" class="skils animate__animated animate__bounce animate__infinite">
          <p class="wite-center">My projects:</p>
       </div>
 
@@ -122,6 +134,10 @@
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+//    document.getElementById("li1").style.setProperty('--animate-delay', '0.5s');
+
+
+
   if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
 
     document.getElementById("userpic").style.width = "100px";
@@ -136,6 +152,11 @@ function scrollFunction() {
 //выравниваем
     document.getElementById("name").style.marginTop = "-100px";
     document.getElementById("userpic").style.marginLeft = "100px";
+
+
+//    document.getElementById("li1").classList.add('animate__animated', 'animate__bounce');
+
+//    document.getElementById("test").style.setProperty('--animate-duration', '2s');
   } else {
 
     document.getElementById("userpic").style.width = "270px";
