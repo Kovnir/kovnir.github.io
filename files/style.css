@@ -300,6 +300,12 @@ iframe {
   text-decoration: none;
   text-transform: uppercase;
 }
+.anchor {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
 .projects {
   display: block;
   width: auto;
