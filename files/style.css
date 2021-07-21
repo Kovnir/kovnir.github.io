@@ -93,6 +93,19 @@ a, a:hover, a:active {
     color: white;
 }
 
+.footer {
+    background-color: rgba(34, 48, 60);
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+ }
+.footer p{
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: white;
+  text-align: center;
+}
+
 .title{
      margin-top: 0px;
      padding-top: 10px;
