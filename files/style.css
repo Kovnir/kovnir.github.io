@@ -57,7 +57,7 @@ h6 {
   font-weight: 700;
 }
 p {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 15px;
   color: white;
   text-align: left;
@@ -88,6 +88,11 @@ a, a:hover, a:active {
 .main-area {
     background-color: rgba(34, 48, 60, .8);
     color: white;
+}
+
+.title{
+     margin-top: 0px;
+     padding-top: 10px;
 }
 
 .social_links {
@@ -160,6 +165,8 @@ a, a:hover, a:active {
     text-align: center;
     color: white;
 }
+
+
 
 .video {
     padding-top: 10px;
@@ -236,7 +243,7 @@ iframe {
 .role {
   color: white;
   text-align: center;
-  transition: 0.4s;
+//  transition: 0.4s;
   height: 30px;
 }
 

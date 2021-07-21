@@ -11,6 +11,12 @@
       <link rel="stylesheet" type="text/css" href="files/style.css">
       <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Montserrat:400,700">
       <link rel="shortcut icon" type="image/x-icon" href="files/image/favicon.ico">
+
+<!-- SCROLL ANIMATION -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!--/ SCROLL ANIMATION -->
+
    </head>
 
    <body>
@@ -55,7 +61,9 @@
 
       <div class="container-fluid main-area">
          <div class="container">
-            <div class="col-lg-12">
+
+<h1 class="title">Games</h1>
+            <div class="col-lg-12" data-aos="fade-right">
                <div class="row">
                   <div class="col-md-6">
                      <h1>Through the Nightmares <i class="fab fa-unity"></i></h1>
@@ -65,6 +73,9 @@
                   <div class="col-md-5">
                      <p>
                          The atmospheric hardcore action platformer about the Sandman wandering the world of children's nightmares. You will have to find and rescue the children from the trap of the almighty Morpheus, by overcoming all their fears.
+                     </p>
+                     <p>
+                        The game made by small Indie Team of three person. My role is Manager, Producer and Developer.
                      </p>
                      <p>
                         Main Platforms are PC and Consoles.
@@ -84,10 +95,48 @@
                   </div><!-- /.col-md-6 -->
                </div>
             </div>
+
+
+            <div class="col-lg-12" data-aos="fade-left">
+               <div class="row">
+                                    <div class="col-md-57">
+</div>
+                  <div class="col-md-5">
+                     <h1>Through the Nightmares <i class="fab fa-unity"></i></h1>
+                  </div>
+               </div>
+               <div class="row">
+                 
+                  <div class="col-md-7">
+                     <div class="video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jc8S4REifO4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                     </div>
+                  </div><!-- /.col-md-6 -->
+ <div class="col-md-5">
+                     <p>
+                         The atmospheric hardcore action platformer about the Sandman wandering the world of children's nightmares. You will have to find and rescue the children from the trap of the almighty Morpheus, by overcoming all their fears.
+                     </p>
+                     <p>
+                        The game made by small Indie Team of three person. My role is Manager, Producer and Developer.
+                     </p>
+                     <p>
+                        Main Platforms are PC and Consoles.
+                     </p>
+                     <br><br>
+                     <ul class="product_links">
+                        <li><a href="https://store.steampowered.com/app/1266210/Through_the_Nightmares/" target="_blank"><i class="fa fa-steam"></i></a></li>
+                        <li><a href="https://throughthenightmares.com/img/networks/fb.png" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://throughthenightmares.com/" target="_blank"><i class="fa fa-globe"></i></a></li>
+                        <li><a href="https://www.instagram.com/throughthenightmares/" target="_blank"><i class="fa fa-instagram"></i></a></li> 
+                     </ul>
+                  </div><!-- /.col-md-6 -->               </div>
+            </div>
+
+
          </div>
 
 
-         
+
       <br>
       <br>
       <br>
@@ -95,6 +144,10 @@
    </body>
 
    <script>
+      //init on scroll animations
+  AOS.init();
+
+
 // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
 window.onscroll = function() {scrollFunction()};
 
@@ -103,7 +156,7 @@ function scrollFunction() {
 
 
 
-  if (document.body.scrollTop > 90 || document.documentElement.scrollTop > 90) {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
 
     document.getElementById("userpic").style.width = "100px";
     document.getElementById("userpic").style.height = "100px";
