@@ -111,6 +111,14 @@ a, a:hover, a:active {
      padding-top: 10px;
 }
 
+.platform {
+    font-size: 30px;
+}
+
+.game {
+    padding-bottom: 30px;
+}
+
 .social_links {
     padding: 0;
     margin: 0;
@@ -185,11 +193,9 @@ a, a:hover, a:active {
 
 
 .video {
-    padding-top: 10px;
     width: 100%;
     position: relative;
     padding-bottom: 56.25%;
-    padding-top: 25px;
     height: 0;
 }
 
