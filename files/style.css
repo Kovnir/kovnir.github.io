@@ -266,6 +266,18 @@ iframe {
   transition: 0.4s;
 }
 
+.cv-button {
+   margin-top: 35px;
+   line-height: 50px;
+   background-color: #c2303f;
+   color: white;
+     right: 150px;
+
+   margin-left: 10px;
+   z-index: 100000;
+   position: fixed;
+}
+
 .hero-offset {
   padding-top: 520px;
 }
