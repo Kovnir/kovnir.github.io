@@ -65,9 +65,16 @@ p {
   color: white;
   text-align: left;
 }
-a, a:hover, a:active {
-    outline: 0px !important;
-    text-decoration: none;
+
+a {
+   color: white;
+   outline: 0px !important;
+   text-decoration: underline;
+}
+a:hover {
+   color: white;
+   outline: 0px !important;
+   text-decoration: none;
 }
 
 
@@ -291,6 +298,11 @@ iframe {
   position: fixed;
 
 }
+
+.hero a {
+   text-decoration: none;
+}
+
 .userpic {
   display: block;
   width: 270px;
