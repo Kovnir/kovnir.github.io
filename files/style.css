@@ -96,7 +96,7 @@ a:hover {
 }
 
 .main-area {
-    background-color: rgba(34, 48, 60, .8);
+    background-color: rgba(34, 48, 60, .9);
     color: white;
 }
 
@@ -573,6 +573,15 @@ iframe {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+hr.divider {
+  border: none;
+  border-top: 5px double #fafffc;
+  color: #fafffc;
+  text-align: center;
+  margin: 30px;
+}
+
 html.w-mod-js.w-mod-no-ios *[data-ix="from-bottom"] {
   -webkit-transform: translate(0px, 200px);
   -ms-transform: translate(0px, 200px);
