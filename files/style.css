@@ -80,7 +80,7 @@ a:hover {
 
 
 .publications .badge span {
-    background-color: #23313b;
+    background-color: #555962;
     padding: 10px 10px 9px 10px;
     height: 25px;
     border-radius: 5px;
@@ -90,14 +90,23 @@ a:hover {
     align-items: center;
 }
 
+.publications .badge {
+    padding: 0px 0px 0px 0px;
+}
+
+
 .publications .date {
     font-size: 14px;
     font-weight: 600;
     color: #a5aec0
 }
 .publications H3 {
-    margin-top: 0px;
+    margin-top: 5px;
 }
+.publications .card-body {
+    padding: 0.7rem 0.7rem 0 0.7rem;
+}
+
 
 
 
