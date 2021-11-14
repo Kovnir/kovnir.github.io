@@ -90,6 +90,10 @@ a:hover {
     align-items: center;
 }
 
+.publications .card-holder {
+    padding-bottom: 30px
+}
+
 .publications .badge {
     padding: 0px 0px 0px 0px;
 }
@@ -98,7 +102,7 @@ a:hover {
 .publications .date {
     font-size: 14px;
     font-weight: 600;
-    color: #a5aec0
+    color: #4c525e
 }
 .publications H3 {
     margin-top: 5px;
