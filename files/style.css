@@ -78,6 +78,39 @@ a:hover {
 }
 
 
+
+.publications .badge span {
+    background-color: #555962;
+    padding: 10px 10px 9px 10px;
+    height: 25px;
+    border-radius: 5px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.publications .badge {
+    padding: 0px 0px 0px 0px;
+}
+
+
+.publications .date {
+    font-size: 14px;
+    font-weight: 600;
+    color: #a5aec0
+}
+.publications H3 {
+    margin-top: 5px;
+}
+.publications .card-body {
+    padding: 0.7rem 0.7rem 0 0.7rem;
+}
+
+
+
+
+
 .delay-1 {
     -webkit-animation-delay: 0.25s;
     animation-delay: 0.25s;
@@ -96,7 +129,7 @@ a:hover {
 }
 
 .main-area {
-    background-color: rgba(34, 48, 60, .8);
+    background-color: rgba(34, 48, 60, .9);
     color: white;
 }
 
@@ -264,6 +297,18 @@ iframe {
   font-size: 30px;
   margin-bottom: 10px;
   transition: 0.4s;
+}
+
+.cv-button {
+   margin-top: 35px;
+   line-height: 50px;
+   background-color: #c2303f;
+   color: white;
+     right: 150px;
+
+   margin-left: 10px;
+   z-index: 100000;
+   position: fixed;
 }
 
 .hero-offset {
@@ -561,6 +606,15 @@ iframe {
   padding-right: 15px;
   padding-left: 15px;
 }
+
+hr.divider {
+  border: none;
+  border-top: 5px double #fafffc;
+  color: #fafffc;
+  text-align: center;
+  margin: 30px;
+}
+
 html.w-mod-js.w-mod-no-ios *[data-ix="from-bottom"] {
   -webkit-transform: translate(0px, 200px);
   -ms-transform: translate(0px, 200px);
