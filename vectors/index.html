@@ -14,27 +14,27 @@
         prepare_grid(ctx);
 
         //draw vectors
-        var x = {};
-        x.x = Number(document.getElementById('X-X').value);
-        x.y = Number(document.getElementById('X-Y').value);
-        draw_vector(ctx, "#ed5160", x.x, x.y, 3);
+        var a = {};
+        a.x = Number(document.getElementById('A-X').value);
+        a.y = Number(document.getElementById('A-Y').value);
+        draw_vector(ctx, "#ed5160", a.x, a.y, 3);
 
-        var y = {};
-        y.x = Number(document.getElementById('Y-X').value);
-        y.y = Number(document.getElementById('Y-Y').value);
-        draw_vector(ctx, "#5f64ed", y.x, y.y, 3);
+        var b = {};
+        b.x = Number(document.getElementById('B-X').value);
+        b.y = Number(document.getElementById('B-Y').value);
+        draw_vector(ctx, "#5f64ed", b.x, b.y, 3);
 
         var show_sum = document.getElementById('sum').checked;
         if (show_sum == true)
         {
           var sum = {};
-          sum.x = x.x + y.x;
-          sum.y = x.y + y.y;
+          sum.x = a.x + b.x;
+          sum.y = a.y + b.y;
           draw_vector(ctx, "#e8b7e3", sum.x, sum.y, 3);
           var show_sum_hint = document.getElementById('sum-hint').checked;
           if (show_sum_hint == true)
           {
-            draw_arrow_local(ctx, "#e8b7e350", x.x, x.y, sum.x, sum.y, 3);
+            draw_arrow_local(ctx, "#e8b7e350", a.x, a.y, sum.x, sum.y, 3);
           }
         }
 
@@ -42,33 +42,33 @@
         if (show_sub == true)
         {
           var sub = {};
-          sub.x = x.x - y.x;
-          sub.y = x.y - y.y;
+          sub.x = a.x - b.x;
+          sub.y = a.y - b.y;
           draw_vector(ctx, "#617863", sub.x, sub.y, 3);
           var show_sub_hint = document.getElementById('sub-hint').checked;
           if (show_sub_hint == true)
           {
-            draw_arrow_local(ctx, "#61786350", y.x, y.y, x.x, x.y, 3);
+            draw_arrow_local(ctx, "#61786350", b.x, b.y, a.x, a.y, 3);
           }
         }
 
-        var show_normal_x = document.getElementById('normal-x').checked;
-        if (show_normal_x == true)
+        var show_normal_a = document.getElementById('normal-a').checked;
+        if (show_normal_a == true)
         {
-          var normalX = {};
-          normalX.x = -x.y;
-          normalX.y = x.x;
+          var normalA = {};
+          normalA.x = -a.y;
+          normalA.y = a.x;
 
-          draw_vector(ctx, "#91aeb3", normalX.x, normalX.y, 3);
+          draw_vector(ctx, "#91aeb3", normalA.x, normalA.y, 3);
         }
-        var show_normal_y = document.getElementById('normal-y').checked;
-        if (show_normal_y == true)
+        var show_normal_b = document.getElementById('normal-b').checked;
+        if (show_normal_b == true)
         {
-          var normalY = {};
-          normalY.x = -y.y;
-          normalY.y = y.x;
+          var normalB = {};
+          normalB.x = -b.y;
+          normalB.y = b.x;
 
-          draw_vector(ctx, "#91aeb3", normalY.x, normalY.y, 3);
+          draw_vector(ctx, "#91aeb3", normalB.x, normalB.y, 3);
         }
       }
     }
@@ -190,8 +190,8 @@
     canvas {text-align: center;}
     body {background-color:#262424}
 
-    .x {color:#ed5160}
-    .y {color:#5f64ed}
+    .a {color:#ed5160}
+    .b {color:#5f64ed}
     .sum {color:#e8b7e3}
     .sub {color:#b7b9e8}
     .normal {color:#91aeb3}
@@ -219,40 +219,40 @@
   <section>
     <div class="left">
       <div>
-        <h2 class="x">Vextor X</h2>
-        <input type="number" id="X-X" value="5" onchange="draw()">
-        <input type="number" id="X-Y" value="7" onchange="draw()">
+        <h2 class="a">Vextor A</h2>
+        <input type="number" id="A-X" value="-6" onchange="draw()">
+        <input type="number" id="A-Y" value="2" onchange="draw()">
       </div>
       <div>
-        <h2 class="y">Vextor Y</h2>
-        <input type="number" id="Y-X" value="-6" onchange="draw()">
-        <input type="number" id="Y-Y" value="2" onchange="draw()">
+        <h2 class="b">Vextor B</h2>
+        <input type="number" id="B-X" value="5" onchange="draw()">
+        <input type="number" id="B-Y" value="7" onchange="draw()">
       </div>
       <div>
-        <h2 class="sum">X + Y</h2>
-        <p>x = x.x + y.x<br>y = x.y + y.y</p>
+        <h2 class="sum">A + B</h2>
+        <p>x = a.x + b.x<br>y = a.y + b.y</p>
         <input type="checkbox" id="sum" onchange="draw()">
         <label for="sum">Visualise Vector</label>
-        <p>Hint: Put the Y vector at the end of the X vector. The finish point will be the end of the vector X+Y</p>
+        <p>Hint: Put the A vector at the end of the B vector. The finish point will be the end of the vector A+B</p>
         <input type="checkbox" id="sum-hint" onchange="draw()">
         <label for="sum-hint">Visualise Hint</label>
       </div>
       <div>
-        <h2 class="sub">X - Y</h2>
-        <p>x = x.x - y.x<br>y = x.y - y.y</p>
+        <h2 class="sub">A - B</h2>
+        <p>x = a.x - b.x<br>y = a.y - b.y</p>
         <input type="checkbox" id="sub" onchange="draw()">
         <label for="sub">Visualise Vector</label>
-        <p>Hint: Draw a line from the end of the Y vector to the end of X vector. Move it to the origin.</p>
+        <p>Hint: Draw a line from the end of the B vector to the end of A vector. Move it to the origin.</p>
         <input type="checkbox" id="sub-hint" onchange="draw()">
         <label for="sub-hint">Visualise Hint</label>
       </div>
       <div>
         <h2 class="normal">Normal</h2>
         <p>x = -y<br>y = x</p>
-        <input type="checkbox" id="normal-x" onchange="draw()">
-        <label for="normal-x">Visualise Normal X</label><br>
-        <input type="checkbox" id="normal-y" onchange="draw()">
-        <label for="normal-y">Visualise Normal Y</label>
+        <input type="checkbox" id="normal-a" onchange="draw()">
+        <label for="normal-a">Visualise Normal A</label><br>
+        <input type="checkbox" id="normal-b" onchange="draw()">
+        <label for="normal-b">Visualise Normal B</label>
         <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
       </div>
     </div>
