@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script type="application/javascript">
+
+
+    function draw() {
+      var canvas = document.getElementById('canvas');
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+
+        //draw bg
+        draw_rect(ctx, '#493c4f', 0,0,600,600);
+
+        //draw grid
+
+        //draw vectors
+        draw_arrow(ctx, "#ed5160", 10, 30, 200, 150, 3);
+        draw_arrow(ctx, "#5055eb", 100, 200, 400, 50, 3);
+      }
+    }
+
+    function draw_rect(context, color, x, y, width, height) {
+      context.fillStyle = color;
+      context.fillRect(x, y, width, height);
+    }
+
+    function draw_arrow(context, color, fromx, fromy, tox, toy, width = 1) {
+      const	arrow_size = 0.1;
+
+      var dx = tox - fromx;
+      var dy = toy - fromy;
+      var angle = Math.atan2(dy, dx);
+
+      context.beginPath();
+
+      context.lineWidth = width;
+      context.strokeStyle = color;
+      context.fillStyle = color;
+
+      context.moveTo(fromx, fromy);
+      context.lineTo(tox, toy);
+      context.stroke();
+
+      var t = 1.0 - arrow_size;
+      var middleX = dx * t + fromx;
+      var middleY = dy * t + fromy;
+      draw_arrow_head(context, middleX, middleY, tox, toy, false);
+    }
+
+    function magnitude(x, y) 
+    {
+      return Math.sqrt(x*x + y*y);
+    }
+
+    function normalize (x, y)
+    {
+      var magnitude = magnitude(x,y);
+      return 
+      {
+        x = x / magnitude;
+        y = y / magnitude;
+      };
+    }
+
+    function draw_arrow_head(context, x1, y1, x2, y2) {
+        var dx = x2 - x1;
+        var dy = y2 - y1;
+        context.beginPath();
+      	context.moveTo(x1 + 0.5 * dy, y1 - 0.5 * dx); // https://dirask.com/posts/jMqM0j
+        context.lineTo(x1 - 0.5 * dy, y1 + 0.5 * dx); // https://dirask.com/posts/1GoW61
+        context.lineTo(x2, y2);
+        context.closePath();
+        context.fill();
+    }
+
+  </script>
+	<style>
+    h1 {text-align: center; color: white;}
+    p {text-align: center;}
+    div {text-align: center;}
+    canvas {text-align: center;}
+    body {background-color:#262424}
+	</style>
+ </head>
+ <body onload="draw();">
+ 	<h1>VECTOR VISUALISER</h1>
+ 	<div>
+   <canvas id="canvas" width="600" height="600"></canvas>
+  </div>
+ </body>
+</html>
