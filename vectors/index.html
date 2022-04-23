@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <script type="application/javascript">
-    const canvas_size = 600;
+    const canvas_size = 700;
     const cell_size = 20;
 
     function draw() {
@@ -79,7 +79,7 @@
       draw_rect(ctx, '#493c4f', 0,0,canvas_size,canvas_size);
 
       //draw grid
-      for (var i = 0; i < canvas_size; i += cell_size)
+      for (var i = cell_size/2; i < canvas_size; i += cell_size)
       {
         draw_line(ctx, '#3d3242', 0, i, canvas_size, i);
         draw_line(ctx, '#3d3242', i, 0, i, canvas_size);
@@ -186,7 +186,6 @@
       padding-top: 0px;
       margin-top: 0px;
       margin-bottom: 10px;
-      color: white;
     }
     canvas {text-align: center;}
     body {background-color:#262424}
@@ -208,7 +207,7 @@
     {
       float: left;
       text-align: center;
-      width: 40%;
+      width: 60%;
     }
 	</style>
  </head>
@@ -258,7 +257,7 @@
       </div>
     </div>
     <div class="right">
-      <canvas id="canvas" width="600" height="600"></canvas>
+      <canvas id="canvas" width="700" height="700"></canvas>
     </div>  
   </section>
     </body>
