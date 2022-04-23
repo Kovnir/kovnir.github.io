@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <script type="application/javascript">
-
+    const canvas_size = 600;
 
     function draw() {
       var canvas = document.getElementById('canvas');
@@ -11,9 +11,20 @@
         var ctx = canvas.getContext('2d');
 
         //draw bg
-        draw_rect(ctx, '#493c4f', 0,0,600,600);
+        draw_rect(ctx, '#493c4f', 0,0,canvas_size,canvas_size);
 
         //draw grid
+
+        for (var i = 0; i < canvas_size; i += 20)
+        {
+          draw_line(ctx, '#3d3242', 0, i, canvas_size, i);
+          draw_line(ctx, '#3d3242', i, 0, i, canvas_size);
+        }
+
+        //horisontal
+        draw_line(ctx, 'black', 0, canvas_size/2, canvas_size, canvas_size/2);
+        //vectical
+        draw_line(ctx, 'black', canvas_size/2, 0, canvas_size/2, canvas_size);
 
         //draw vectors
         draw_arrow(ctx, "#ed5160", 10, 30, 200, 150, 3);
@@ -26,27 +37,32 @@
       context.fillRect(x, y, width, height);
     }
 
-    function draw_arrow(context, color, fromx, fromy, tox, toy, width = 1) {
-      const	arrow_size = 0.1;
-
-      var dx = tox - fromx;
-      var dy = toy - fromy;
-      var angle = Math.atan2(dy, dx);
-
+    function draw_line(context, color, fromx, fromy, tox, toy, width = 1)
+    {
       context.beginPath();
 
       context.lineWidth = width;
       context.strokeStyle = color;
-      context.fillStyle = color;
 
       context.moveTo(fromx, fromy);
       context.lineTo(tox, toy);
       context.stroke();
+    }
 
-      var t = 1.0 - arrow_size;
-      var middleX = dx * t + fromx;
-      var middleY = dy * t + fromy;
-      draw_arrow_head(context, middleX, middleY, tox, toy, false);
+    function draw_arrow(context, color, fromx, fromy, tox, toy, width = 1, arrow_size = 20.0) {
+
+      var dx = tox - fromx;
+      var dy = toy - fromy;
+      var angle = Math.atan2(dy, dx);
+      var normal = normalize(dx, dy);
+
+      draw_line(context, color, fromx, fromy, tox - normal.x * (arrow_size -1), toy - normal.y * (arrow_size-1), width);
+
+      context.fillStyle = color;
+
+      var middleX = tox - normal.x * arrow_size;
+      var middleY = toy - normal.y * arrow_size;
+      draw_arrow_head(context, middleX, middleY, tox, toy);
     }
 
     function magnitude(x, y) 
@@ -54,25 +70,24 @@
       return Math.sqrt(x*x + y*y);
     }
 
-    function normalize (x, y)
+    function normalize(x, y)
     {
-      var magnitude = magnitude(x,y);
-      return 
-      {
-        x = x / magnitude;
-        y = y / magnitude;
-      };
+      var mag = magnitude(x,y);
+      var result = {};
+      result.x = x / mag;
+      result.y = y / mag;
+      return result
     }
 
     function draw_arrow_head(context, x1, y1, x2, y2) {
-        var dx = x2 - x1;
-        var dy = y2 - y1;
-        context.beginPath();
-      	context.moveTo(x1 + 0.5 * dy, y1 - 0.5 * dx); // https://dirask.com/posts/jMqM0j
-        context.lineTo(x1 - 0.5 * dy, y1 + 0.5 * dx); // https://dirask.com/posts/1GoW61
-        context.lineTo(x2, y2);
-        context.closePath();
-        context.fill();
+      var dx = x2 - x1;
+      var dy = y2 - y1;
+      context.beginPath();
+      context.moveTo(x1 + 0.5 * dy, y1 - 0.5 * dx); // https://dirask.com/posts/jMqM0j
+      context.lineTo(x1 - 0.5 * dy, y1 + 0.5 * dx); // https://dirask.com/posts/1GoW61
+      context.lineTo(x2, y2);
+      context.closePath();
+      context.fill();
     }
 
   </script>
