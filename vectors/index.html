@@ -52,16 +52,24 @@
           }
         }
 
-        // var sub = {};
-        // sub.x = x.x - y.x;
-        // sub.y = x.y - y.y;
-        // draw_vector(ctx, "#61757880", sub.x, sub.y, 3);
+        var show_normal_x = document.getElementById('normal-x').checked;
+        if (show_normal_x == true)
+        {
+          var normalX = {};
+          normalX.x = -x.y;
+          normalX.y = x.x;
 
-        // var normal = {};
-        // normal.x = - x.y;
-        // normal.y = x.x;
-        // draw_vector(ctx, "#617863", normal.x, normal.y, 3);
+          draw_vector(ctx, "#91aeb3", normalX.x, normalX.y, 3);
+        }
+        var show_normal_y = document.getElementById('normal-y').checked;
+        if (show_normal_y == true)
+        {
+          var normalY = {};
+          normalY.x = -y.y;
+          normalY.y = y.x;
 
+          draw_vector(ctx, "#91aeb3", normalY.x, normalY.y, 3);
+        }
       }
     }
 
@@ -187,7 +195,7 @@
     .y {color:#5f64ed}
     .sum {color:#e8b7e3}
     .sub {color:#b7b9e8}
-    .normal {color:#b7b9e8}
+    .normal {color:#91aeb3}
     
     .left
     {
@@ -241,12 +249,12 @@
       </div>
       <div>
         <h2 class="normal">Normal</h2>
-        <p>x = x.y<br>y = -x</p>
-        <input type="checkbox" id="normal" onchange="draw()">
-        <label for="normal">Visualise Vector</label>
-        <p>Hint: Draw a line from the end of the Y vector to the end of X vector. Move it to the origin.</p>
-        <input type="checkbox" id="normal-hint" onchange="draw()">
-        <label for="normal-hint">Visualise Hint</label>
+        <p>x = -y<br>y = x</p>
+        <input type="checkbox" id="normal-x" onchange="draw()">
+        <label for="normal-x">Visualise Normal X</label><br>
+        <input type="checkbox" id="normal-y" onchange="draw()">
+        <label for="normal-y">Visualise Normal Y</label>
+        <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
       </div>
     </div>
     <div class="right">
