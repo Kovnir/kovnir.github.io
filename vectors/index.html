@@ -37,6 +37,21 @@
             draw_arrow_local(ctx, "#e8b7e350", x.x, x.y, sum.x, sum.y, 3);
           }
         }
+
+        var show_sub = document.getElementById('sub').checked;
+        if (show_sub == true)
+        {
+          var sub = {};
+          sub.x = x.x - y.x;
+          sub.y = x.y - y.y;
+          draw_vector(ctx, "#617863", sub.x, sub.y, 3);
+          var show_sub_hint = document.getElementById('sub-hint').checked;
+          if (show_sub_hint == true)
+          {
+            draw_arrow_local(ctx, "#61786350", y.x, y.y, x.x, x.y, 3);
+          }
+        }
+
         // var sub = {};
         // sub.x = x.x - y.x;
         // sub.y = x.y - y.y;
@@ -70,8 +85,7 @@
 
     function draw_vector(context, color, x, y, width) 
     {
-      var center = canvas_size/2;
-      draw_arrow(context, color, center, center, center + x*cell_size, center - y*cell_size, width);
+      draw_arrow_local(context, color, 0, 0, x, y, width);
     }
 
     function draw_arrow_local(context, color, fromx, fromy, tox, toy, width = 1, arrow_size = 20.0) {
@@ -149,8 +163,21 @@
       padding-bottom: 20px;
       color: white;
     }
-    p, label 
+    h2 {
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+    p, label
     {
+      margin-top: 0px;
+      color: white;
+      margin-bottom: 5px;
+    }
+    input
+    {
+      padding-top: 0px;
+      margin-top: 0px;
+      margin-bottom: 10px;
       color: white;
     }
     canvas {text-align: center;}
@@ -189,7 +216,6 @@
         <input type="number" id="X-X" value="5" onchange="draw()">
         <input type="number" id="X-Y" value="7" onchange="draw()">
       </div>
-      <br>
       <div>
         <h2 class="y">Vextor Y</h2>
         <input type="number" id="Y-X" value="-6" onchange="draw()">
@@ -197,12 +223,30 @@
       </div>
       <div>
         <h2 class="sum">X + Y</h2>
-        <p>x = x.x + x.y<br>y = y.x + y.y</p>
+        <p>x = x.x + y.x<br>y = x.y + y.y</p>
         <input type="checkbox" id="sum" onchange="draw()">
         <label for="sum">Visualise Vector</label>
         <p>Hint: Put the Y vector at the end of the X vector. The finish point will be the end of the vector X+Y</p>
         <input type="checkbox" id="sum-hint" onchange="draw()">
         <label for="sum-hint">Visualise Hint</label>
+      </div>
+      <div>
+        <h2 class="sub">X - Y</h2>
+        <p>x = x.x - y.x<br>y = x.y - y.y</p>
+        <input type="checkbox" id="sub" onchange="draw()">
+        <label for="sub">Visualise Vector</label>
+        <p>Hint: Draw a line from the end of the Y vector to the end of X vector. Move it to the origin.</p>
+        <input type="checkbox" id="sub-hint" onchange="draw()">
+        <label for="sub-hint">Visualise Hint</label>
+      </div>
+      <div>
+        <h2 class="normal">Normal</h2>
+        <p>x = x.y<br>y = -x</p>
+        <input type="checkbox" id="normal" onchange="draw()">
+        <label for="normal">Visualise Vector</label>
+        <p>Hint: Draw a line from the end of the Y vector to the end of X vector. Move it to the origin.</p>
+        <input type="checkbox" id="normal-hint" onchange="draw()">
+        <label for="normal-hint">Visualise Hint</label>
       </div>
     </div>
     <div class="right">
