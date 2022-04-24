@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <script type="application/javascript">
-    const canvas_size = 700;
+    const canvas_size = 500;
     const cell_size = 20;
 
     function draw() {
@@ -70,6 +70,13 @@
 
           draw_vector(ctx, "#91aeb3", normalB.x, normalB.y, 3);
         }
+
+        var dot_product_label = document.getElementById('dot-product-label');
+        dot_product_label.textContent = "Dot Product: " + (a.x*b.x + a.y*b.y);
+        var normalisedA = normalize(a.x, a.y);
+        var normalisedB = normalize(b.x, b.y);
+        var dot_product_label = document.getElementById('dot-product-label-normalised');
+        dot_product_label.textContent = "Dot Product of normalised vectors: " + (normalisedA.x*normalisedB.x + normalisedA.y*normalisedB.y).toFixed(3);
       }
     }
 
@@ -195,19 +202,34 @@
     .sum {color:#e8b7e3}
     .sub {color:#b7b9e8}
     .normal {color:#91aeb3}
+    .dot-product {color:#91aeb3}
+    .cross-product {color:#91aeb3}
     
-    .left
+    section
     {
       margin-left: 10%;
+    }
+    .left
+    {
       float: left;
       text-align: left;
-      width: 30%;
+      width: 33%;
     }
     .right
     {
       float: left;
       text-align: center;
-      width: 60%;
+      width: 100%-33%;
+    }
+    .bottom
+    {
+      float: left;
+      width: 100%;
+    }
+    .bottom-part
+    {
+      float: left;
+      width: 33%;
     }
 	</style>
  </head>
@@ -217,36 +239,43 @@
   </header>
 
   <section>
-    <div class="left">
-      <div>
-        <h2 class="a">Vextor A</h2>
-        <input type="number" id="A-X" value="-6" onchange="draw()">
-        <input type="number" id="A-Y" value="2" onchange="draw()">
+    <div>
+      <div class="left">
+        <div>
+          <h2 class="a">Vextor A</h2>
+          <input type="number" id="A-X" value="-6" onchange="draw()">
+          <input type="number" id="A-Y" value="2" onchange="draw()">
+        </div>
+        <div>
+          <h2 class="b">Vextor B</h2>
+          <input type="number" id="B-X" value="5" onchange="draw()">
+          <input type="number" id="B-Y" value="7" onchange="draw()">
+        </div>
+        <div>
+          <h2 class="sum">A + B</h2>
+          <p>x = a.x + b.x<br>y = a.y + b.y</p>
+          <input type="checkbox" id="sum" onchange="draw()">
+          <label for="sum">Visualise Vector</label>
+          <p>Hint: Put the A vector at the end of the B vector. The finish point will be the end of the vector A+B</p>
+          <input type="checkbox" id="sum-hint" onchange="draw()">
+          <label for="sum-hint">Visualise Hint</label>
+        </div>
+        <div>
+          <h2 class="sub">A - B</h2>
+          <p>x = a.x - b.x<br>y = a.y - b.y</p>
+          <input type="checkbox" id="sub" onchange="draw()">
+          <label for="sub">Visualise Vector</label>
+          <p>Hint: Draw a line from the end of the B vector to the end of A vector. Move it to the origin.</p>
+          <input type="checkbox" id="sub-hint" onchange="draw()">
+          <label for="sub-hint">Visualise Hint</label>
+        </div>
       </div>
-      <div>
-        <h2 class="b">Vextor B</h2>
-        <input type="number" id="B-X" value="5" onchange="draw()">
-        <input type="number" id="B-Y" value="7" onchange="draw()">
-      </div>
-      <div>
-        <h2 class="sum">A + B</h2>
-        <p>x = a.x + b.x<br>y = a.y + b.y</p>
-        <input type="checkbox" id="sum" onchange="draw()">
-        <label for="sum">Visualise Vector</label>
-        <p>Hint: Put the A vector at the end of the B vector. The finish point will be the end of the vector A+B</p>
-        <input type="checkbox" id="sum-hint" onchange="draw()">
-        <label for="sum-hint">Visualise Hint</label>
-      </div>
-      <div>
-        <h2 class="sub">A - B</h2>
-        <p>x = a.x - b.x<br>y = a.y - b.y</p>
-        <input type="checkbox" id="sub" onchange="draw()">
-        <label for="sub">Visualise Vector</label>
-        <p>Hint: Draw a line from the end of the B vector to the end of A vector. Move it to the origin.</p>
-        <input type="checkbox" id="sub-hint" onchange="draw()">
-        <label for="sub-hint">Visualise Hint</label>
-      </div>
-      <div>
+      <div class="right">
+        <canvas id="canvas" width="500" height="500"></canvas>
+      </div>  
+    </div>
+    <div class="bottom">
+      <div class="bottom-part"> 
         <h2 class="normal">Normal</h2>
         <p>x = -y<br>y = x</p>
         <input type="checkbox" id="normal-a" onchange="draw()">
@@ -255,10 +284,22 @@
         <label for="normal-b">Visualise Normal B</label>
         <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
       </div>
+      <div class="bottom-part">
+        <h2 class="cross-product">Cross Product</h2>
+        <p>x = a.y * b.z - a.z * b.y</p>
+        <p>y = a.z * b.x - a.x * b.z</p>
+        <p>z = a.x * b.y - a.y * b.x</p>
+        <p>Hint: Cross Product in 3D returns a perpendicular vector in relation to the two input vectors. Magnitude of the cross product vector is equal to the area of the parallelogram between the two vectors. <b>You can't do a cross product with vectors in 2D space.</b></p>
+      </div>
+      <div class="bottom-part">
+        <h2 class="dot-product">Dot Product</h2>
+        <p>a * b = a.x * b.x + a.y * b.y</p>
+        <b><p id="dot-product-label">Value</p></b>
+        <p>Hint: Dot (scalar) product A*B is the product of the length of the projection of the vector A on the B and the length of the B.<br>Most often used to check the co-direction of vectors. If the value > 0 – the vectors look in the same direction. If less – in different. If equal to 0 – rotated by 90 degrees. If the vectors before the product are normalized, the values will become from -1 to 1, where 1 – the vectors are directed in the same way, -1 – they are turned in strictly different directions.</p>
+        <b><p id="dot-product-label-normalised">Value</p></b>
+      </div>
+
     </div>
-    <div class="right">
-      <canvas id="canvas" width="700" height="700"></canvas>
-    </div>  
   </section>
     </body>
 </html>
