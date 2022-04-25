@@ -175,7 +175,6 @@
     h1 
     {
       text-align: center;
-      padding-bottom: 20px;
       color: white;
     }
     h2 {
@@ -208,6 +207,7 @@
     section
     {
       margin-left: 5%;
+      margin-right: 5%;
     }
     .left
     {
@@ -219,18 +219,19 @@
     .right
     {
       float: left;
-      text-align: center;
-      width: 100%-33%;
+      text-align: left;
+      width: 67%;
     }
-    .bottom
+    .right-bottom
     {
       float: left;
-      width: 100%;
     }
-    .bottom-part
+
+    .right-bottom-part
     {
       float: left;
-      width: 33%;
+      width: 45%;
+      padding-right: 5%;
     }
 	</style>
  </head>
@@ -270,36 +271,35 @@
           <input type="checkbox" id="sub-hint" onchange="draw()">
           <label for="sub-hint">Visualise Hint</label>
         </div>
+        <div> 
+          <h2 class="normal">Normal</h2>
+          <p>x = -y<br>y = x</p>
+          <input type="checkbox" id="normal-a" onchange="draw()">
+          <label for="normal-a">Visualise Normal A</label><br>
+          <input type="checkbox" id="normal-b" onchange="draw()">
+          <label for="normal-b">Visualise Normal B</label>
+          <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
+        </div>
       </div>
       <div class="right">
         <canvas id="canvas" width="500" height="500"></canvas>
-      </div>  
-    </div>
-    <div class="bottom">
-      <div class="bottom-part"> 
-        <h2 class="normal">Normal</h2>
-        <p>x = -y<br>y = x</p>
-        <input type="checkbox" id="normal-a" onchange="draw()">
-        <label for="normal-a">Visualise Normal A</label><br>
-        <input type="checkbox" id="normal-b" onchange="draw()">
-        <label for="normal-b">Visualise Normal B</label>
-        <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
+        <div class="right-bottom">
+          <div class="right-bottom-part">
+            <h2 class="cross-product">Cross Product</h2>
+            <p>x = a.y * b.z - a.z * b.y</p>
+            <p>y = a.z * b.x - a.x * b.z</p>
+            <p>z = a.x * b.y - a.y * b.x</p>
+            <p>Hint: Cross Product in 3D returns a perpendicular vector in relation to the two input vectors. Magnitude of the cross product vector is equal to the area of the parallelogram between the two vectors.</p><p><b>You can't apply a cross product to vectors in 2D space.</b></p>
+          </div>
+          <div class="right-bottom-part">
+            <h2 class="dot-product">Dot Product</h2>
+            <p>a * b = a.x * b.x + a.y * b.y</p>
+            <b><p id="dot-product-label">Value</p></b>
+            <p>Hint: Dot (scalar) product A*B is the product of the length of the projection of the vector A on the B and the length of the B.<br>Most often used to check the co-direction of vectors. If the value > 0 – the vectors look in the same direction. If less – in different. If equal to 0 – rotated by 90 degrees. If the vectors before the product are normalized, the values will become from -1 to 1, where 1 – the vectors are directed in the same way, -1 – they are turned in strictly different directions.</p>
+            <b><p id="dot-product-label-normalised">Value</p></b>
+          </div>
+        </div>
       </div>
-      <div class="bottom-part">
-        <h2 class="cross-product">Cross Product</h2>
-        <p>x = a.y * b.z - a.z * b.y</p>
-        <p>y = a.z * b.x - a.x * b.z</p>
-        <p>z = a.x * b.y - a.y * b.x</p>
-        <p>Hint: Cross Product in 3D returns a perpendicular vector in relation to the two input vectors. Magnitude of the cross product vector is equal to the area of the parallelogram between the two vectors.</p><p><b>You can't apply a cross product to vectors in 2D space.</b></p>
-      </div>
-      <div class="bottom-part">
-        <h2 class="dot-product">Dot Product</h2>
-        <p>a * b = a.x * b.x + a.y * b.y</p>
-        <b><p id="dot-product-label">Value</p></b>
-        <p>Hint: Dot (scalar) product A*B is the product of the length of the projection of the vector A on the B and the length of the B.<br>Most often used to check the co-direction of vectors. If the value > 0 – the vectors look in the same direction. If less – in different. If equal to 0 – rotated by 90 degrees. If the vectors before the product are normalized, the values will become from -1 to 1, where 1 – the vectors are directed in the same way, -1 – they are turned in strictly different directions.</p>
-        <b><p id="dot-product-label-normalised">Value</p></b>
-      </div>
-
     </div>
   </section>
     </body>
