@@ -81,7 +81,7 @@
 
         var cos_label = document.getElementById('cos-label');
         var cos = dotProduct / (magnitude(a.x, a.y) * magnitude(b.x, b.y));
-        cos_label.textContent = "Cos(A,B): " + cos.toFixed(3);
+        cos_label.textContent = "cos(A,B): " + cos.toFixed(3);
         var angle = Math.acos(cos)*180/Math.PI;
         if (angle == NaN)
         {
@@ -210,7 +210,8 @@
       margin-bottom: 10px;
     }
     canvas {text-align: center;}
-    body {background-color:#262424}
+    body {background-color:#262424;}
+    u {text-decoration-color: white;}
 
     .a {color:#ed5160}
     .b {color:#5f64ed}
@@ -230,8 +231,11 @@
     {
       float: left;
       text-align: left;
+      width: 35%;
+    }
+    .left-block
+    {
       padding-right: 5%;
-      width: 28%;
     }
     .vector
     {
@@ -243,21 +247,32 @@
       width: 35%;
     }
 
+    .normal-item
+    {
+      width: 50%;
+      float: left;
+    }
     .right
     {
       float: left;
       text-align: left;
-      width: 67%;
+      width: 65%;
     }
     .right-bottom
     {
       float: left;
     }
 
-    .right-bottom-part
+    .right-bottom-left
     {
       float: left;
-      width: 45%;
+      width: 55%;
+      padding-right: 5%;
+    }
+    .right-bottom-right
+    {
+      float: left;
+      width: 35%;
       padding-right: 5%;
     }
 	</style>
@@ -270,7 +285,7 @@
   <section>
     <div>
       <div class="left">
-        <div>
+        <div class="left-block">
           <div class="vector">
             <h2 class="a">Vextor A</h2>
             <input type="number" id="A-X" value="-6" onchange="draw()">
@@ -282,7 +297,7 @@
             <input type="number" id="B-Y" value="7" onchange="draw()">
           </div>
         </div>
-        <div>
+        <div class="left-block">
           <h2 class="sum">A + B</h2>
           <p>x = a.x + b.x<br>y = a.y + b.y</p>
           <input type="checkbox" id="sum" onchange="draw()">
@@ -291,7 +306,7 @@
           <input type="checkbox" id="sum-hint" onchange="draw()">
           <label for="sum-hint">Visualise Hint</label>
         </div>
-        <div>
+        <div class="left-block">
           <h2 class="sub">A - B</h2>
           <p>x = a.x - b.x<br>y = a.y - b.y</p>
           <input type="checkbox" id="sub" onchange="draw()">
@@ -300,16 +315,22 @@
           <input type="checkbox" id="sub-hint" onchange="draw()">
           <label for="sub-hint">Visualise Hint</label>
         </div>
-        <div> 
+        <div class="left-block"> 
           <h2 class="normal">Normal</h2>
           <p>x = -y<br>y = x</p>
-          <input type="checkbox" id="normal-a" onchange="draw()">
-          <label for="normal-a">Visualise Normal A</label><br>
-          <input type="checkbox" id="normal-b" onchange="draw()">
-          <label for="normal-b">Visualise Normal B</label>
+          <div>
+            <div class="normal-item">
+              <input type="checkbox" id="normal-a" onchange="draw()">
+              <label for="normal-a">Visualise Normal A</label>
+            </div>
+            <div class="normal-item">
+              <input type="checkbox" id="normal-b" onchange="draw()">
+              <label for="normal-b">Visualise Normal B</label>
+            </div>
+          </div>
           <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
         </div>
-        <div>
+        <div class="left-block">
           <h2 class="cross-product">Cross Product</h2>
           <p>x = a.y * b.z - a.z * b.y</p>
           <p>y = a.z * b.x - a.x * b.z</p>
@@ -320,19 +341,19 @@
       <div class="right">
         <canvas id="canvas" width="500" height="500"></canvas>
         <div class="right-bottom">
-          <div class="right-bottom-part">
+          <div class="right-bottom-left">
             <h2 class="dot-product">Dot Product</h2>
             <p>a * b = a.x * b.x + a.y * b.y</p>
-            <b><p id="dot-product-label">Value</p></b>
+            <b><u><p id="dot-product-label">Value</p></u></b>
             <p>Hint: Dot (scalar) product A*B is the product of the length of the projection of the vector A on the B and the length of the B.<br>Most often used to check the co-direction of vectors. If the value > 0 – the vectors look in the same direction. If less – in different. If equal to 0 – rotated by 90 degrees. If the vectors before the product are normalized, the values will become from -1 to 1, where 1 – the vectors are directed in the same way, -1 – they are turned in strictly different directions.</p>
-            <b><p id="dot-product-label-normalised">Value</p></b>
+            <b><u><p id="dot-product-label-normalised">Value</p></u></b>
           </div>
-          <div class="right-bottom-part">
+          <div class="right-bottom-right">
             <h2 class="angle">Angle</h2>
-            <p>cos(a,b) = (A*B) / (|A|*|B|)</p>
-            <b><p id="cos-label">Value</p></b>
+            <p>cos(A,B) = (A*B) / (|A|*|B|)</p>
+            <b><u><p id="cos-label">Value</p></u></b>
             <p>Hint: The cos of the angle between vectors is equal to the dot product of these vectors divided by the product of their lengths. To get the angle, you need to take the arc cosine of this value.</p>
-            <b><p id="angle-label">Value</p></b>
+            <b><u><p id="angle-label">Value</p></u></b>
           </div>
         </div>
       </div>
