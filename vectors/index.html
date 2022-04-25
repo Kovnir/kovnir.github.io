@@ -72,11 +72,27 @@
         }
 
         var dot_product_label = document.getElementById('dot-product-label');
-        dot_product_label.textContent = "Dot Product: " + (a.x*b.x + a.y*b.y);
+        var dotProduct =  (a.x*b.x + a.y*b.y);
+        dot_product_label.textContent = "Dot Product: " + dotProduct;
         var normalisedA = normalize(a.x, a.y);
         var normalisedB = normalize(b.x, b.y);
         var dot_product_label = document.getElementById('dot-product-label-normalised');
         dot_product_label.textContent = "Dot Product of normalised vectors: " + (normalisedA.x*normalisedB.x + normalisedA.y*normalisedB.y).toFixed(3);
+
+        var cos_label = document.getElementById('cos-label');
+        var cos = dotProduct / (magnitude(a.x, a.y) * magnitude(b.x, b.y));
+        cos_label.textContent = "Cos(A,B): " + cos.toFixed(3);
+        var angle = Math.acos(cos)*180/Math.PI;
+        if (angle == NaN)
+        {
+          angle = 0;
+        }
+        var angle_label = document.getElementById('angle-label');
+        angle_label.textContent = "Angle: " + angle.toFixed(1) + "°";
+
+//        var dot_product_label = document.getElementById('dot-product-label-normalised');
+//        dot_product_label.textContent = "Dot Product of normalised vectors: " + (normalisedA.x*normalisedB.x + normalisedA.y*normalisedB.y).toFixed(3);
+
       }
     }
 
@@ -203,6 +219,7 @@
     .normal {color:#91aeb3}
     .dot-product {color:#91aeb3}
     .cross-product {color:#91aeb3}
+    .angle {color:#91aeb3}
     
     section
     {
@@ -216,6 +233,16 @@
       padding-right: 5%;
       width: 28%;
     }
+    .vector
+    {
+      width: 50%;
+      float: left;
+    }
+    .vector input
+    {
+      width: 35%;
+    }
+
     .right
     {
       float: left;
@@ -244,14 +271,16 @@
     <div>
       <div class="left">
         <div>
-          <h2 class="a">Vextor A</h2>
-          <input type="number" id="A-X" value="-6" onchange="draw()">
-          <input type="number" id="A-Y" value="2" onchange="draw()">
-        </div>
-        <div>
-          <h2 class="b">Vextor B</h2>
-          <input type="number" id="B-X" value="5" onchange="draw()">
-          <input type="number" id="B-Y" value="7" onchange="draw()">
+          <div class="vector">
+            <h2 class="a">Vextor A</h2>
+            <input type="number" id="A-X" value="-6" onchange="draw()">
+            <input type="number" id="A-Y" value="2" onchange="draw()">
+          </div>
+          <div class="vector">
+            <h2 class="b">Vextor B</h2>
+            <input type="number" id="B-X" value="5" onchange="draw()">
+            <input type="number" id="B-Y" value="7" onchange="draw()">
+          </div>
         </div>
         <div>
           <h2 class="sum">A + B</h2>
@@ -280,23 +309,30 @@
           <label for="normal-b">Visualise Normal B</label>
           <p>Hint: Normal is a vector at 90 degrees to another vector.</p>
         </div>
-      </div>
+        <div>
+          <h2 class="cross-product">Cross Product</h2>
+          <p>x = a.y * b.z - a.z * b.y</p>
+          <p>y = a.z * b.x - a.x * b.z</p>
+          <p>z = a.x * b.y - a.y * b.x</p>
+          <p>Hint: Cross Product in 3D returns a perpendicular vector in relation to the two input vectors. Magnitude of the cross product vector is equal to the area of the parallelogram between the two vectors.</p><p><b>You can't apply a cross product to vectors in 2D space.</b></p>
+        </div>
+    </div>
       <div class="right">
         <canvas id="canvas" width="500" height="500"></canvas>
         <div class="right-bottom">
-          <div class="right-bottom-part">
-            <h2 class="cross-product">Cross Product</h2>
-            <p>x = a.y * b.z - a.z * b.y</p>
-            <p>y = a.z * b.x - a.x * b.z</p>
-            <p>z = a.x * b.y - a.y * b.x</p>
-            <p>Hint: Cross Product in 3D returns a perpendicular vector in relation to the two input vectors. Magnitude of the cross product vector is equal to the area of the parallelogram between the two vectors.</p><p><b>You can't apply a cross product to vectors in 2D space.</b></p>
-          </div>
           <div class="right-bottom-part">
             <h2 class="dot-product">Dot Product</h2>
             <p>a * b = a.x * b.x + a.y * b.y</p>
             <b><p id="dot-product-label">Value</p></b>
             <p>Hint: Dot (scalar) product A*B is the product of the length of the projection of the vector A on the B and the length of the B.<br>Most often used to check the co-direction of vectors. If the value > 0 – the vectors look in the same direction. If less – in different. If equal to 0 – rotated by 90 degrees. If the vectors before the product are normalized, the values will become from -1 to 1, where 1 – the vectors are directed in the same way, -1 – they are turned in strictly different directions.</p>
             <b><p id="dot-product-label-normalised">Value</p></b>
+          </div>
+          <div class="right-bottom-part">
+            <h2 class="angle">Angle</h2>
+            <p>cos(a,b) = (A*B) / (|A|*|B|)</p>
+            <b><p id="cos-label">Value</p></b>
+            <p>Hint: The cos of the angle between vectors is equal to the dot product of these vectors divided by the product of their lengths. To get the angle, you need to take the arc cosine of this value.</p>
+            <b><p id="angle-label">Value</p></b>
           </div>
         </div>
       </div>
