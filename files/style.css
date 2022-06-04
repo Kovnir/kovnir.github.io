@@ -80,7 +80,6 @@ a:hover {
 
 
 .publications .badge span {
-    background-color: #555962;
     padding: 10px 10px 9px 10px;
     height: 25px;
     border-radius: 5px;
@@ -95,7 +94,8 @@ a:hover {
 }
 
 .publications .badge {
-    padding: 0px 0px 0px 0px;
+  background-color: #555962;
+  padding: 0px 0px 0px 0px;
 }
 
 
@@ -111,7 +111,10 @@ a:hover {
     padding: 0.7rem 0.7rem 0 0.7rem;
 }
 
-
+.publications .resource
+{
+  background-color: rgb(91 90 156);
+}
 
 
 
